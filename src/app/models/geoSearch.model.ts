@@ -1,4 +1,5 @@
 interface IGeoSearchModel {
+    id?: number;
     name?: string;
     latitude?: number;
     longitude?: number;
@@ -9,6 +10,7 @@ interface IGeoSearchModel {
 }
 
 export class GeoSearchModel implements IGeoSearchModel {
+    id = 0;
     name = '';
     latitude = 0;
     longitude = 0;
@@ -16,6 +18,7 @@ export class GeoSearchModel implements IGeoSearchModel {
 
     constructor(d?: IGeoSearchModel) {
         if (d) {
+            this.id = d.id || 0;
             this.name = d.name || '';
             this.latitude = d.latitude || 0;
             this.longitude = d.longitude || 0;

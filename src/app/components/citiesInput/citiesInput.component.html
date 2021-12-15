@@ -1,0 +1,16 @@
+<label for="cityInput" class="form-label">Input city name</label>
+<div class="input-group">
+    <input
+        #cityInput
+        placeholder="Start typing..."
+        class="form-control"
+        (keyup)="text.emit(cityInput.value)"
+    >
+    <span *ngIf="citiesList.length > 0" class="input-group-text" id="selection">+</span>
+</div>
+<div class="container">
+    <div class="row form-control" *ngFor="let city of citiesList" id={{city.id}} (click)="selectCity(city)">
+        <span class="row">{{city.name}}</span>
+        <span class="row">{{city.addInfo}}</span>
+    </div>
+</div>

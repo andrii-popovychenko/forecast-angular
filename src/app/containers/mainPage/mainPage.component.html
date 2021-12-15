@@ -1,4 +1,11 @@
 <div class="container">
     Main container
-    <location-input></location-input>
+    <div class="row">
+        <div class="col">
+            <current-weather [data]="geoData"></current-weather>
+        </div>
+        <div class="col">
+            <location-input (citySelect)="setData($event)"></location-input>
+        </div>
+    </div>
 </div>
