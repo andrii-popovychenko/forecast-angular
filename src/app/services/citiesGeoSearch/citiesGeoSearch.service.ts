@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, filter } from 'rxjs';
-import { GeoSearchRequestModel } from 'src/app/models/request/geoSearch.model';
-import { GeoSearchModel } from 'src/app/models/response/geoSearch.model';
+import { GeoSearchRequestModel } from 'src/app/models/geoSearchRequest.model';
+import { GeoSearchModel } from 'src/app/models/geoSearch.model';
 
 type GeoSearch = {
     results: {}[];
@@ -16,7 +16,7 @@ export class CitiesGeoSearchService {
     constructor(private http: HttpClient) {}
 
     search(text: string): Observable<GeoSearchModel[]> {
-        const reqModel = new GeoSearchRequestModel({ name: text });
+        const reqModel = new GeoSearchRequestModel({ name: text, count: this.defaultCount });
         return this.http.get<GeoSearch>(`${this.apuUrl}${reqModel.url}`).pipe(
             filter((r) => !!r.results),
             map(({ results }) =>

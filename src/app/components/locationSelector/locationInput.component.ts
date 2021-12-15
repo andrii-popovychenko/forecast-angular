@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { debounceTime, Subject, filter, distinctUntilChanged } from 'rxjs';
-import { GeoSearchModel } from 'src/app/models/response/geoSearch.model';
+import { GeoSearchModel } from 'src/app/models/geoSearch.model';
 import { CitiesGeoSearchService } from 'src/app/services/citiesGeoSearch/citiesGeoSearch.service';
+import { GeoParamsOutput } from 'src/app/types/types';
 
 @Component({
     selector: 'location-input',
@@ -9,10 +10,13 @@ import { CitiesGeoSearchService } from 'src/app/services/citiesGeoSearch/citiesG
     styleUrls: ['./locationInput.component.scss'],
 })
 export class LocationInputComponent {
+    @Output()
+    citySelect = new EventEmitter<GeoParamsOutput>();
+
     searchTextUpdate = new Subject<string>();
     cities: GeoSearchModel[] = [];
-	latitude = 0;
-	longitude = 0;
+    latitude = 0;
+    longitude = 0;
 
     constructor(private citiesSearch: CitiesGeoSearchService) {
         this.searchTextUpdate
@@ -30,14 +34,19 @@ export class LocationInputComponent {
             .subscribe((result) => (this.cities = result));
     }
 
-	setGeoData(cityName: string) {
-		const city = this.cities.find(({ name }) => name === cityName);
-		if (city) {
-			this.latitude = city.latitude;
-			this.longitude = city.longitude;
-		} else {
-			this.latitude = 0;
-			this.longitude = 0;
-		}
-	}
+    setGeoData(cityName: string) {
+        const city = this.cities.find(({ name }) => name === cityName);
+        if (city) {
+            this.latitude = city.latitude;
+            this.longitude = city.longitude;
+        } else {
+            this.latitude = 0;
+            this.longitude = 0;
+        }
+        const output: GeoParamsOutput = {
+            latitude: this.latitude,
+            longitude: this.longitude,
+        };
+        this.citySelect.emit(output);
+    }
 }

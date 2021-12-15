@@ -7,7 +7,7 @@ interface IGeoSearchRequestModel {
 
 export class GeoSearchRequestModel implements IGeoSearchRequestModel {
     name = '';
-    count = 10;
+    count = 0;
     format = 'json';
     language = 'en';
 
