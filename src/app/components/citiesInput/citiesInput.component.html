@@ -4,7 +4,7 @@
         #cityInput
         placeholder="Start typing..."
         class="form-control"
-        (keyup)="text.emit(cityInput.value || '')"
+        (keyup)="text.emit(cityInput.value)"
     >
     <span *ngIf="citiesList.length > 0" class="input-group-text" id="selection">+</span>
 </div>

@@ -1,4 +1,14 @@
 <div class="container">
-    Current weather:
-    {{currentWeather.temperature}}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                Current weather:
+                {{currentWeather.temperature}}
+            </div>
+            <div class="row">
+                Current conditions:
+                {{currentWeather.weathercode | weatherConditions }}
+            </div>
+        </div>
+    </div>
 </div>
