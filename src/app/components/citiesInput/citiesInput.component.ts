@@ -3,7 +3,8 @@ import { GeoSearchModel } from "src/app/models/geoSearch.model";
 
 @Component({
     selector: "cities-input",
-    templateUrl: "./citiesInput.component.html"
+    templateUrl: "./citiesInput.component.html",
+    styleUrls: ["./citiesInput.component.scss"]
 })
 export class CitiesInputComponent {
     @Input()
