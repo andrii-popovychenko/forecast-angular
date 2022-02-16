@@ -2,30 +2,14 @@
     <div class="card">
         <div class="card-body">
             <ng-container *ngIf="!hideInfo; else noCity">
-                <ul class="list-group list-group-horizontal justify-content-between">
-                    <li class="list-group-item rounded" *ngFor="let info of displayedData">
-                        <!-- <div class="row">
-                            <div class="col">
-                                {{info.date}}
-                            </div>
-                        </div> -->
-                        <div class="row">
-                            <div class="col">
-                                Max: {{info.max}} C°
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                Min: {{info.min}} C°
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col">
-                                {{info.condition | weatherConditions }}
-                            </div>
-                        </div> -->
-                    </li>
-                </ul>
+                <div class="row">
+                    <div class="col border rounded" *ngFor="let info of displayedData">
+                        {{info.date}}
+                        Max: {{info.max}} C°
+                        Min: {{info.min}} C°
+                        {{info.condition | weatherConditions }}
+                    </div>
+                </div>
             </ng-container>
         </div>
     </div>
