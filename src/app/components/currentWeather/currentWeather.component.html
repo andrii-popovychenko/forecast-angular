@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <ng-container *ngIf="!isEmptyData; else noCity">
+                <div class="row">
+                    Current weather:
+                    {{currentWeather.temperature}} C°
+                </div>
+                <div class="row">
+                    Current conditions:
+                    {{currentWeather.weathercode | weatherConditions }}
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #noCity>
+    <div class="card-body">
+        <div class="row">
+            Select city first!
+        </div>
+    </div>
+</ng-template>

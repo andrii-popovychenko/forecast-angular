@@ -1,30 +1,30 @@
 <div class="container">
-    <div class="row justify-content-end">
-        <div class="col-6 align-self-end">
-            <label for="city" class="form-label">Input city name</label>
-            <input 
-                id="city"
-                #city
-                class="form-control"
-                placeholder="Start typing..."
-                list="citiesOptions"
-                (keyup)="searchTextUpdate.next(city.value)"
-                (change)="setGeoData(city.value)">
-            <datalist id="citiesOptions">
-                <option *ngFor="let city of cities" label={{city.addInfo}} value={{city.name}}></option>
-            </datalist>
-        </div>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-6 align-self-end">
-            <label for="latitude" class="form-label">Latitude</label>
-            <input id="latitude" class="form-control" value={{latitude}} readonly>
-        </div>
-    </div>
-    <div class="row justify-content-end">
-        <div class="col-6 align-self-end">
-            <label for="longitute" class="form-label">Longitude</label>
-            <input id="longitute" class="form-control" value={{longitude}} readonly>
+    <div class="card">
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col align-self-end">
+                    <cities-input
+                        id="city"
+                        (text)="searchTextUpdate.next($event)"
+                        (select)="setGeoData($event)"
+                        (clearData)="clearAll()"
+                        [citiesList]="cities"
+                    >
+                    </cities-input>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col align-self-end">
+                    <label for="latitude" class="form-label">Latitude</label>
+                    <input id="latitude" class="form-control" value={{latitude}} readonly>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col align-self-end">
+                    <label for="longitute" class="form-label">Longitude</label>
+                    <input id="longitute" class="form-control" value={{longitude}} readonly>
+                </div>
+            </div>
         </div>
     </div>
 </div>
