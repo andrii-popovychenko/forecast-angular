@@ -12,7 +12,16 @@ export class MainPageComponent {
         longitude: 0,
     };
 
+    clearData = false;
+
 	setData(params: GeoParamsOutput) {
 		this.geoData = params;
 	}
+
+    clearAll() {
+        this.geoData = {
+            latitude: 0,
+            longitude: 0
+        };
+    }
 }

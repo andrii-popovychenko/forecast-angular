@@ -25,6 +25,9 @@ export class LocationInputComponent implements OnInit, OnDestroy {
     @Output()
     citySelect = new EventEmitter<GeoParamsOutput>();
 
+    @Output()
+    clearData = new EventEmitter<boolean>();
+
     searchTextUpdate = new Subject<string>();
     cities: GeoSearchModel[] = [];
     latitude = 0;
@@ -54,22 +57,22 @@ export class LocationInputComponent implements OnInit, OnDestroy {
     }
 
     setGeoData(city: GeoSearchModel) {
-        if (city) {
-            this.latitude = city.latitude;
-            this.longitude = city.longitude;
-        } else {
-            this.latitude = 0;
-            this.longitude = 0;
+        if (city instanceof GeoSearchModel) {
+            this.latitude = city?.latitude || 0;
+            this.longitude = city?.longitude || 0;
+            const output: GeoParamsOutput = {
+                latitude: this.latitude,
+                longitude: this.longitude,
+            };
+            this.citySelect.emit(output);
+            this.cities = [];
         }
-        const output: GeoParamsOutput = {
-            latitude: this.latitude,
-            longitude: this.longitude,
-        };
-        this.citySelect.emit(output);
-        this.cities = [];
     }
 
-    click(value: any) {
-        console.log(value);
+    clearAll() {
+        this.cities = [];
+        this.latitude = 0;
+        this.longitude = 0;
+        this.clearData.emit(true);
     }
 }

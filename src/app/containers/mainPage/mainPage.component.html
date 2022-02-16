@@ -5,7 +5,7 @@
             <current-weather [data]="geoData"></current-weather>
         </div>
         <div class="col">
-            <location-input (citySelect)="setData($event)"></location-input>
+            <location-input (citySelect)="setData($event)" (clearData)="clearAll()"></location-input>
         </div>
     </div>
 </div>

@@ -24,10 +24,12 @@ export class CurrentWeatherComponent implements OnInit, OnChanges, OnDestroy {
 
     currentWeather: CurrentWeatherModel = new CurrentWeatherModel();
     private weatherSub = new Subscription();
+    isEmptyData = false;
 
     constructor(private weatherService: WeatherProviderService) {}
 
     ngOnInit(): void {
+        this.isEmptyData = true;
         this.weatherSub = this.weatherService.currentWeather.subscribe(
             (r) => (this.currentWeather = r)
         );
@@ -39,6 +41,7 @@ export class CurrentWeatherComponent implements OnInit, OnChanges, OnDestroy {
                 latitude: changes['data'].currentValue.latitude || 0,
                 longitude: changes['data'].currentValue.longitude || 0,
             };
+            this.isEmptyData = data.latitude === 0 && data.longitude === 0;
             this.weatherService.geoDataChange(data);
         }
     }
