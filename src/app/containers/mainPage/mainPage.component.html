@@ -1,11 +1,15 @@
 <div class="container">
-    Main container
-    <div class="row">
+    <div class="row mt-5">
         <div class="col">
             <current-weather [hideInfo]="cityCleared" [currentWeather]="currentWeather"></current-weather>
         </div>
         <div class="col">
             <location-input (citySelect)="setData($event)" (clearData)="clearAll()"></location-input>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <daily-weather [hideInfo]="cityCleared" [dailyWeather]="dailyWeather"></daily-weather>
         </div>
     </div>
 </div>

@@ -33,7 +33,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
         );
     }
 
-    setData(params: GeoParamsOutput) {
+    setData(params: GeoParamsOutput | Event) {
+        if (params instanceof Event) {
+            return;
+        }
         this.geoData = params;
         this.weatherService.geoDataChange(params);
         this.cityCleared = false;

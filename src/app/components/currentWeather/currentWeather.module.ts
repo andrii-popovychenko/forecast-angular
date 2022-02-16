@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgFormsModule } from 'src/app/ngforms.module';
-import { WeatherConditionsPipe } from 'src/app/pipes/weatherConditions.pipe';
+import { WeatherConditionsPipeModule } from 'src/app/pipes/weatherConditions.pipe.module';
 import { CurrentWeatherComponent } from './currentWeather.component';
 
 @NgModule({
-    declarations: [CurrentWeatherComponent, WeatherConditionsPipe],
-    imports: [CommonModule, NgFormsModule],
+    declarations: [CurrentWeatherComponent],
+    imports: [CommonModule, NgFormsModule, WeatherConditionsPipeModule],
     exports: [CurrentWeatherComponent],
 })
 export class CurrentWeatherModule {}
