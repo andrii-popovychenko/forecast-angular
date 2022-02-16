@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <ng-container *ngIf="!isEmptyData; else noCity">
+            <ng-container *ngIf="!hideInfo; else noCity">
                 <div class="row">
                     Current weather:
                     {{currentWeather.temperature}} C°

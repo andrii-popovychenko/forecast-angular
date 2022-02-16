@@ -1,4 +1,5 @@
 import { CurrentWeatherModel } from '../models/currentWeather.model';
+import { DailyWeatherModel } from '../models/dailyWeather.model';
 
 export type GeoParamsOutput = {
     latitude: number;
@@ -12,3 +13,7 @@ export type GeoSearch = {
 export type CurrentWeatherResponse = {
     current_weather: CurrentWeatherModel;
 };
+
+export type DailyWeatherResponse = {
+    daily: DailyWeatherModel;
+}

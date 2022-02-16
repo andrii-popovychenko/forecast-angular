@@ -2,7 +2,7 @@
     Main container
     <div class="row">
         <div class="col">
-            <current-weather [data]="geoData"></current-weather>
+            <current-weather [hideInfo]="cityCleared" [currentWeather]="currentWeather"></current-weather>
         </div>
         <div class="col">
             <location-input (citySelect)="setData($event)" (clearData)="clearAll()"></location-input>
