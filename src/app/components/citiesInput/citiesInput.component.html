@@ -6,13 +6,24 @@
         [(ngModel)]="city"
         (keyup)="text.emit(city)"
     >
-    <button class="btn btn-outline-secondary" type="button" id="clear-button" (click)="clearInput()">X</button>
+    <button
+        class="btn btn-outline-secondary"
+        type="button"
+        id="clear-button"
+        (click)="clearInput()">X</button>
     <div 
         *ngIf="citiesList.length > 0"
         class="dropdown-list">
-        <div class="row form-control border border-primary rounded" *ngFor="let city of citiesList" id={{city.id}} (click)="selectCity(city)">
-            <span class="row city-name">{{city.name}}</span>
-            <span class="row city-info">{{city.addInfo}}</span>
+        <div 
+            *ngFor="let city of citiesList; first as isFirst; last as isLast" id={{city.id}} (click)="selectCity(city)"
+            class="dropdown-item border shadow-sm"
+            [ngClass]="{
+                'rounded-top': isFirst,
+                'rounded-bottom': isLast
+            }"
+            >
+            <span class="city-name">{{city.name}}</span>
+            <span class="city-info">{{city.addInfo}}</span>
         </div>
     </div>
 </div>

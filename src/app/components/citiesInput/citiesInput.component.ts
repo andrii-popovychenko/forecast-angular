@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, Output } from "@angular/core";
 import { GeoSearchModel } from "src/app/models/geoSearch.model";
 
 @Component({

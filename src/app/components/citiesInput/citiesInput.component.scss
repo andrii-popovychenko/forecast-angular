@@ -15,6 +15,13 @@
     z-index: 999;
 }
 
-.row:hover {
-    background-color: aqua;
+.dropdown-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #ced4da;
 }
