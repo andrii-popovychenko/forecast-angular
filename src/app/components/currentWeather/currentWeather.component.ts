@@ -1,8 +1,4 @@
-import {
-    Component,
-    Input,
-    OnInit,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CurrentWeatherModel } from 'src/app/models/currentWeather.model';
 
 @Component({

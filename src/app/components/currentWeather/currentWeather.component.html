@@ -3,12 +3,20 @@
         <div class="card-body">
             <ng-container *ngIf="!hideInfo; else noCity">
                 <div class="row">
-                    Current weather:
-                    {{currentWeather.temperature}} C°
-                </div>
-                <div class="row">
-                    Current conditions:
-                    {{currentWeather.weathercode | weatherConditions }}
+                    <div class="col-8">
+                        <div class="row">
+                            Current weather:
+                            {{currentWeather.temperature}} C°
+                        </div>
+                        <div class="row">
+                            Current conditions:
+                            {{currentWeather.weathercode | weatherConditions }}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <weather-icon [weatherCode]="currentWeather.weathercode" width="64" height="64">
+                        </weather-icon>
+                    </div>
                 </div>
             </ng-container>
         </div>

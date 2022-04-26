@@ -1,0 +1,10 @@
+<svg 
+    xmlns="http://www.w3.org/2000/svg"
+    [attr.width]="width"
+    [attr.height]="height"
+    [attr.fill]="color"
+    [attr.class]="class"
+    viewBox="0 0 16 16">
+
+    <path *ngFor="let iconPath of paths" [attr.d]="iconPath" />
+</svg>
