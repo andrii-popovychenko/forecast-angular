@@ -1,0 +1,25 @@
+.search-button-container {
+    margin: 0;
+}
+
+.input-area {
+    padding-right: 0;
+    padding-left: 15px;
+    vertical-align: middle;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+    border: 1px solid black;
+    border-right: none;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.input-area:focus {
+    outline: none;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}

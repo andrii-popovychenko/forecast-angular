@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CurrentWeatherModule } from 'src/app/components/currentWeather/currentWeather.module';
 import { DailyWeatherModule } from 'src/app/components/dailyWeather/dailyWeather.module';
 import { LocationInputModule } from 'src/app/components/locationSelector/locationInput.module';
+import { SearchCityModule } from 'src/app/components/searchCity/searchCity.module';
 import { WeatherProviderModule } from 'src/app/services/weatherProvider/weatherProvider.module';
 import { WeatherProviderService } from 'src/app/services/weatherProvider/weatherProvider.service';
 import { MainPageComponent } from './mainPage.component';
@@ -13,6 +14,7 @@ import { MainPageComponent } from './mainPage.component';
         CurrentWeatherModule,
         WeatherProviderModule,
         DailyWeatherModule,
+        SearchCityModule
     ],
     exports: [MainPageComponent],
     providers: [WeatherProviderService],
