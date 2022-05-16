@@ -5,11 +5,9 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="row">
-                            Current weather:
-                            {{currentWeather.temperature}} C°
+                            {{currentWeather.temperature.toFixed(0)}} C°
                         </div>
                         <div class="row">
-                            Current conditions:
                             {{currentWeather.weathercode | weatherConditions }}
                         </div>
                     </div>

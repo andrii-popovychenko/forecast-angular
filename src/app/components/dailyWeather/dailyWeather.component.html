@@ -2,12 +2,15 @@
     <div class="card">
         <div class="card-body">
             <ng-container *ngIf="!hideInfo; else noCity">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col border rounded" *ngFor="let info of displayedData">
-                        {{info.date}}
-                        Max: {{info.max}} C°
-                        Min: {{info.min}} C°
-                        {{info.condition | weatherConditions }}
+                        <div class="row justify-content-center">
+                            {{info.date | date: "d, EEEE"}}
+                        </div>
+                        <weather-icon [weatherCode]="info.condition" width="16" height="16"></weather-icon>
+                        <div class="row justify-content-center">
+                            {{info.max.toFixed(0)}} C° / {{info.min.toFixed(0)}} C°
+                        </div>
                     </div>
                 </div>
             </ng-container>

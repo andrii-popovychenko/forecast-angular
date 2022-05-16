@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { DailyWeatherModel } from "src/app/models/dailyWeather.model";
 
 type DisplayedData = {
     date: string;
-    min: string;
-    max: string;
+    min: number;
+    max: number;
     condition: number
 }
 
@@ -32,13 +32,15 @@ export class DailyWeatherComponent {
 
     private initData(data: DailyWeatherModel) {
         const result: DisplayedData[] = [];
-        for (let i = 0; i <=6; i++) {
-            result.push({
-                date: data.time[i],
-                min: data.temperature_2m_min[i],
-                max: data.temperature_2m_max[i],
-                condition: Number(data.weathercode[i])
-            });
+        if (data.time.length) {
+            for (let i = 0; i <=6; i++) {
+                result.push({
+                    date: data.time[i],
+                    min: Number(data.temperature_2m_min[i]),
+                    max: Number(data.temperature_2m_max[i]),
+                    condition: Number(data.weathercode[i])
+                });
+            }
         }
         return result;
     }
