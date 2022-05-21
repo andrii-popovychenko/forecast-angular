@@ -1,16 +1,19 @@
 <header></header>
 <div class="container">
-    <div class="row mt-5">
-        <div class="col">
-            <current-weather [hideInfo]="cityCleared" [currentWeather]="currentWeather"></current-weather>
-        </div>
-        <div class="col">
+    <div class="row">
+        <div class="col mt-2 p-0">
             <location-input (citySelect)="setData($event)" (clearData)="clearAll()"></location-input>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col">
+    <div class="row">
+        <div class="col mt-2 p-0">
+            <current-weather [hideInfo]="cityCleared" [currentWeather]="currentWeather"></current-weather>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2 p-0">
             <daily-weather [hideInfo]="cityCleared" [dailyWeather]="dailyWeather"></daily-weather>
         </div>
     </div>
 </div>
+<footer class="mt-2"></footer>

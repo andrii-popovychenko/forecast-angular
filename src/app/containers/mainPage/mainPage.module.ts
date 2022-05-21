@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CurrentWeatherModule } from 'src/app/components/currentWeather/currentWeather.module';
 import { DailyWeatherModule } from 'src/app/components/dailyWeather/dailyWeather.module';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 import { HeaderModule } from 'src/app/components/header/header.component.module';
 import { LocationInputModule } from 'src/app/components/locationSelector/locationInput.module';
 import { WeatherProviderModule } from 'src/app/services/weatherProvider/weatherProvider.module';
@@ -11,6 +12,7 @@ import { MainPageComponent } from './mainPage.component';
     declarations: [MainPageComponent],
     imports: [
         HeaderModule,
+        FooterModule,
         LocationInputModule,
         CurrentWeatherModule,
         WeatherProviderModule,

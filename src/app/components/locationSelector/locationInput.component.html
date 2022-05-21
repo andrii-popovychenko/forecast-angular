@@ -1,30 +1,15 @@
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div class="row justify-content-center">
-                <div class="col align-self-end">
-                    <cities-input
-                        id="city"
-                        (text)="searchTextUpdate.next($event)"
-                        (select)="setGeoData($event)"
-                        (clearData)="clearAll()"
-                        [citiesList]="cities"
-                    >
-                    </cities-input>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col align-self-end">
-                    <label for="latitude" class="form-label">Latitude</label>
-                    <input id="latitude" class="form-control" value={{latitude}} readonly>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col align-self-end">
-                    <label for="longitute" class="form-label">Longitude</label>
-                    <input id="longitute" class="form-control" value={{longitude}} readonly>
-                </div>
-            </div>
+<div class="container border px-3 py-3">
+    <div class="row justify-content-center">
+        <div class="col-6 align-self-end">
+            <cities-input id="city" (text)="searchTextUpdate.next($event)" (select)="setGeoData($event)"
+                (clearData)="clearAll()" [citiesList]="cities">
+            </cities-input>
+        </div>
+        <div class="col-3 align-self-end">
+            <input id="latitude" class="form-control" placeholder="Latitude" value={{latitude}} readonly>
+        </div>
+        <div class="col-3 align-self-end">
+            <input id="longitute" class="form-control" placeholder="Longitude" value={{longitude}} readonly>
         </div>
     </div>
 </div>

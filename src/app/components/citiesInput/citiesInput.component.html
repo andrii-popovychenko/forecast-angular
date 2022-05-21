@@ -1,7 +1,6 @@
-<label for="cityInput" class="form-label">Input city name</label>
 <div class="input-group">
     <input
-        placeholder="Start typing..."
+        placeholder="Input city..."
         class="form-control"
         [(ngModel)]="city"
         (keyup)="text.emit(city)"
@@ -20,8 +19,7 @@
             [ngClass]="{
                 'rounded-top': isFirst,
                 'rounded-bottom': isLast
-            }"
-            >
+            }">
             <span class="city-name">{{city.name}}</span>
             <span class="city-info">{{city.addInfo}}</span>
         </div>

@@ -1,21 +1,17 @@
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <ng-container *ngIf="!hideInfo; else noCity">
+<div class="container border px-3 py-3">
+    <ng-container *ngIf="!hideInfo; else noCity">
+        <div class="row justify-content-center">
+            <div class="col border rounded" *ngFor="let info of displayedData">
                 <div class="row justify-content-center">
-                    <div class="col border rounded" *ngFor="let info of displayedData">
-                        <div class="row justify-content-center">
-                            {{info.date | date: "d, EEEE"}}
-                        </div>
-                        <weather-icon [weatherCode]="info.condition" width="16" height="16"></weather-icon>
-                        <div class="row justify-content-center">
-                            {{info.max.toFixed(0)}} C° / {{info.min.toFixed(0)}} C°
-                        </div>
-                    </div>
+                    {{info.date | date: "d, EEEE"}}
                 </div>
-            </ng-container>
+                <weather-icon [weatherCode]="info.condition" width="16" height="16"></weather-icon>
+                <div class="row justify-content-center">
+                    {{info.max.toFixed(0)}} C° / {{info.min.toFixed(0)}} C°
+                </div>
+            </div>
         </div>
-    </div>
+    </ng-container>
 </div>
 
 <ng-template #noCity>
