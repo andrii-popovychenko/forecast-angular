@@ -1,12 +1,12 @@
 <div class="input-group">
     <input
         placeholder="Input city..."
-        class="form-control"
+        class="form-control rounded-0"
         [(ngModel)]="city"
         (keyup)="text.emit(city)"
     >
     <button
-        class="btn btn-outline-secondary"
+        class="btn btn-outline-secondary rounded-0"
         type="button"
         id="clear-button"
         (click)="clearInput()">X</button>
