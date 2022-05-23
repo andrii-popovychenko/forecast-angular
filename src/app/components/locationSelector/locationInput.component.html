@@ -1,15 +1,17 @@
-<div class="container border px-3 py-3">
-    <div class="row justify-content-center">
-        <div class="col-6 align-self-end">
+<div class="container px-3 py-3">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-6 fw-light">
             <cities-input id="city" (text)="searchTextUpdate.next($event)" (select)="setGeoData($event)"
                 (clearData)="clearAll()" [citiesList]="cities">
             </cities-input>
         </div>
-        <div class="col-3 align-self-end">
-            <input id="latitude" class="form-control" placeholder="Latitude" value={{latitude}} readonly>
-        </div>
-        <div class="col-3 align-self-end">
-            <input id="longitute" class="form-control" placeholder="Longitude" value={{longitude}} readonly>
+        <div class="col-6 fw-light">
+            <div>
+                Latitude: <span class="border-bottom">{{latitude}}</span>
+            </div>
+            <div>
+                Longitude: <span class="border-bottom">{{longitude}}</span>
+            </div>
         </div>
     </div>
 </div>

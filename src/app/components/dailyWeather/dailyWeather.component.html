@@ -1,7 +1,12 @@
-<div class="container border px-3 py-3">
+<div class="container px-3 py-3">
     <ng-container *ngIf="!hideInfo; else noCity">
-        <div class="row justify-content-center">
-            <div class="col border rounded" *ngFor="let info of displayedData">
+        <div class="row justify-content-center fw-light">
+            <div
+                *ngFor="let info of displayedData; let isLast = last"
+                class="col"
+                [ngClass]="{
+                    'border-end': !isLast
+                }">
                 <div class="row justify-content-center">
                     {{info.date | date: "d, EEEE"}}
                 </div>

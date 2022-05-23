@@ -1,17 +1,14 @@
-<div class="container border px-3 py-3">
+<div class="container px-3 py-3">
     <ng-container *ngIf="!hideInfo; else noCity">
-        <div class="row">
-            <div class="col-8">
-                <div class="row">
-                    {{currentWeather.temperature.toFixed(0)}} C°
-                </div>
-                <div class="row">
-                    {{currentWeather.weathercode | weatherConditions }}
-                </div>
-            </div>
+        <div class="row justify-content-start">
             <div class="col-4">
-                <weather-icon [weatherCode]="currentWeather.weathercode" width="64" height="64">
-                </weather-icon>
+                <span class="fs-1 fw-light align-middle">
+                    {{currentWeather.temperature.toFixed(0)}} C°
+                </span>
+                <hr class="text-primary">
+                <span class="fs-2 fw-lighter align-middle">
+                    {{currentWeather.weathercode | weatherConditions }}
+                </span>
             </div>
         </div>
     </ng-container>
